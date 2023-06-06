@@ -24,31 +24,31 @@ const initialBoard = [
 const enemyShips: Ship[] = [
   {
     name: 'Carrier',
-    coords: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]],
+    coords: [[3, 0], [3, 1], [3, 2], [3, 3], [3, 4]],
     hits: 0,
     sunk: false
   },
   {
     name: 'Battleship',
-    coords: [[1, 0], [1, 1], [1, 2], [1, 3]],
+    coords: [[1, 8], [2, 8], [3, 8], [4, 8]],
     hits: 0,
     sunk: false
   },
   {
     name: 'Cruiser',
-    coords: [[2, 0], [2, 1], [2, 2]],
+    coords: [[6, 1], [7, 1], [8, 1]],
     hits: 0,
     sunk: false
   },
   {
     name: 'Submarine',
-    coords: [[3, 0], [3, 1], [3, 2]],
+    coords: [[7, 5], [7, 6], [7, 7]],
     hits: 0,
     sunk: false
   },
   {
     name: 'Destroyer',
-    coords: [[4, 0], [4, 1]],
+    coords: [[0, 4], [1, 4]],
     hits: 0,
     sunk: false
   }

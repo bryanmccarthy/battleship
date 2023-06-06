@@ -56,6 +56,25 @@ const enemyShips: Ship[] = [
 
 function Board() {
   const [board, setBoard] = useState(initialBoard);
+  const [shipStatus, setShipStatus] = useState([
+    { name: 'Carrier', sunk: false },
+    { name: 'Battleship', sunk: false },
+    { name: 'Cruiser', sunk: false },
+    { name: 'Submarine', sunk: false },
+    { name: 'Destroyer', sunk: false }
+  ]);
+
+  function checkIfSunk(ship: Ship) {
+    if (ship.hits === ship.coords.length) {
+      ship.sunk = true;
+      const newShipStatus = [...shipStatus];
+      newShipStatus.forEach(shipStatus => {
+        if (shipStatus.name === ship.name) {
+          shipStatus.sunk = true;
+        }
+      });
+    }
+  }
 
   function checkForHit(rowIdx: number, colIdx: number) {
     let hit = false;
@@ -63,6 +82,8 @@ function Board() {
       ship.coords.forEach(coord => {
         if (coord[0] === rowIdx && coord[1] === colIdx) {
           hit = true;
+          ship.hits++;
+          checkIfSunk(ship);
         }
       })
     })
@@ -105,6 +126,24 @@ function Board() {
           </div>
         ))
       }
+      <div className="ShipStatus">
+        {
+          shipStatus.map(ship => (
+            <div className="Ship" key={ship.name}>
+              {
+                ship.sunk ? 
+                  <div className="Sunk">
+                    {ship.name}
+                  </div>
+                : 
+                  <div className="NotSunk">
+                    {ship.name}
+                  </div>
+              }
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }

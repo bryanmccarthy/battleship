@@ -26,8 +26,15 @@
   }
 }
 
-.Filled {
-  background-color: #000;
+.Miss {
+  background-color: #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.Hit {
+  background-color: #ff0000;
   border-radius: 50%;
   width: 30px;
   height: 30px;

@@ -99,6 +99,7 @@ function Board() {
 
   return (
     <div className="Board">
+      <div className="Grid">
       {
         board.map((row, rowIdx) => (
           <div className="Row" key={rowIdx}>
@@ -126,6 +127,7 @@ function Board() {
           </div>
         ))
       }
+      </div>
       <div className="ShipStatus">
         {
           shipStatus.map(ship => (
@@ -151,6 +153,9 @@ function Board() {
 function App() {
   return (
     <div className="App">
+      <div className="Title">
+        Battleship
+      </div>
       <Board />
     </div>
   );

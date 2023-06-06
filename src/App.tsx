@@ -151,12 +151,18 @@ function Board() {
 }
 
 function App() {
+
+  function Restart() {
+    window.location.reload();
+  }
+
   return (
     <div className="App">
       <div className="Title">
         Battleship
       </div>
       <Board />
+      <button className="RestartButton" onClick={Restart}>Restart</button>
     </div>
   );
 }
